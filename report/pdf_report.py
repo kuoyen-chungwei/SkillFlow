@@ -13,7 +13,7 @@ import matplotlib.patheffects as path_effects
 from datetime import datetime
 from . import PDFReport
 
-fontManager.addfont('msjh.ttc')
+# fontManager.addfont('msjh.ttc')
 
 
 class EnhancedSkillRadarPDFReport(PDFReport):
@@ -1404,4 +1404,5 @@ class CareerSpecificReportGenerator(PDFReport):
         except Exception as e:
             print(f'生成報告時發生錯誤：{e}')
             return None
+
 
