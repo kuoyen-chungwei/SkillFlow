@@ -3,6 +3,7 @@ import matplotlib
 matplotlib.use('Agg')
 
 import matplotlib.pyplot as plt
+from matplotlib.font_manager import fontManager
 import numpy as np
 from matplotlib.backends.backend_pdf import PdfPages
 from matplotlib.patches import Circle, FancyBboxPatch, FancyArrowPatch
@@ -12,7 +13,7 @@ import matplotlib.patheffects as path_effects
 from datetime import datetime
 from . import PDFReport
 
-# fontManager.addfont('msjh.ttc')
+fontManager.addfont('msjh.ttc')
 
 
 class EnhancedSkillRadarPDFReport(PDFReport):
@@ -1403,6 +1404,7 @@ class CareerSpecificReportGenerator(PDFReport):
         except Exception as e:
             print(f'生成報告時發生錯誤：{e}')
             return None
+
 
 
 
