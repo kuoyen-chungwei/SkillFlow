@@ -1,6 +1,10 @@
+import shutil
 import matplotlib
 
 matplotlib.use('Agg')
+
+cache_dir = matplotlib.get_cachedir()
+shutil.rmtree(cache_dir, ignore_errors=True)
 
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
@@ -1405,6 +1409,7 @@ class CareerSpecificReportGenerator(PDFReport):
         except Exception as e:
             print(f'生成報告時發生錯誤：{e}')
             return None
+
 
 
 
