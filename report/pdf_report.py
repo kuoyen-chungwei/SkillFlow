@@ -7,7 +7,7 @@ cache_dir = matplotlib.get_cachedir()
 shutil.rmtree(cache_dir, ignore_errors=True)
 
 import matplotlib.pyplot as plt
-from matplotlib.font_manager import fontManager
+# from matplotlib.font_manager import fontManager
 import numpy as np
 from matplotlib.backends.backend_pdf import PdfPages
 from matplotlib.patches import Circle, FancyBboxPatch, FancyArrowPatch
@@ -17,8 +17,8 @@ import matplotlib.patheffects as path_effects
 from datetime import datetime
 from . import PDFReport
 
-fontManager.addfont('msjh.ttc')
-matplotlib.rc('font', family='msjh')
+# fontManager.addfont('msjh.ttc')
+# matplotlib.rc('font', family='msjh')
 
 
 class EnhancedSkillRadarPDFReport(PDFReport):
@@ -1409,6 +1409,7 @@ class CareerSpecificReportGenerator(PDFReport):
         except Exception as e:
             print(f'生成報告時發生錯誤：{e}')
             return None
+
 
 
 
