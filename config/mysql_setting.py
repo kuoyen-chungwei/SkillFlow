@@ -1,5 +1,6 @@
-MYSQL_HOST = 'hnd1.clusters.zeabur.com'
+MYSQL_HOST = 'mysql.zeabur.internal'
 MYSQL_USERNAME = 'root'
-MYSQL_PASSWORD = '524szck7BrRA9M3IqWfgKba8S0u16QZY'
+MYSQL_PASSWORD = 'AQiMovRy7TY48K23nN0C5L9l1VrwI6hG'
 DB_NAME = 'learning_assistant'
-MYSQL_PORT = 24968
+MYSQL_PORT = 3306
+
