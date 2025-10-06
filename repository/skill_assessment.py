@@ -6,6 +6,8 @@ class SkillAssessmentRepository:
         cursor = self.connection.cursor()
 
         try:
+            self.connection.ping(reconnect=True)
+
             sql_cmd = '''
             INSERT INTO skill_assessment 
             VALUES (%s, %s, %s) 
@@ -16,10 +18,13 @@ class SkillAssessmentRepository:
             self.connection.commit()
 
             return True
-        except Exception as e:
+        except pymysql.Error as e:
             print(f'儲存評估結果失敗：{e}')
             self.connection.rollback()
-
+            return False
+        except Exception as e:
+            print(f'未預期的錯誤：{e}')
+            self.connection.rollback()
             return False
         finally:
             cursor.close()
@@ -28,6 +33,8 @@ class SkillAssessmentRepository:
         cursor = self.connection.cursor()
 
         try:
+            self.connection.ping(reconnect=True)
+
             sql_cmd = '''
             SELECT skill_name, user_level FROM skill_assessment 
             WHERE user_id = %s AND skill_name = %s
@@ -35,9 +42,11 @@ class SkillAssessmentRepository:
             cursor.execute(sql_cmd, (user_id, skill_name))
 
             return cursor.fetchone()
-        except Exception as e:
+        except pymysql.Error as e:
             print(f'查詢技能評估失敗：{e}')
-
+            return None
+        except Exception as e:
+            print(f'未預期的錯誤：{e}')
             return None
         finally:
             cursor.close()
@@ -46,6 +55,8 @@ class SkillAssessmentRepository:
         cursor = self.connection.cursor()
 
         try:
+            self.connection.ping(reconnect=True)
+
             sql_cmd = '''
             SELECT skill_name, user_level FROM skill_assessment 
             WHERE user_id = %s
@@ -53,9 +64,11 @@ class SkillAssessmentRepository:
             cursor.execute(sql_cmd, (user_id,))
 
             return cursor.fetchall()
-        except Exception as e:
+        except pymysql.Error as e:
             print(f'查詢所有技能評估失敗：{e}')
-
+            return []
+        except Exception as e:
+            print(f'未預期的錯誤：{e}')
             return []
         finally:
             cursor.close()
