@@ -1,4 +1,3 @@
-已使用 98% 的儲存空間 … 儲存空間用盡後，你就無法將檔案儲存至雲端硬碟、備份到 Google 相簿，也無法使用 Gmail。現在購買 100 GB 儲存空間，可享 6 個月折扣，每月只要 $65 $32.50。
 import uuid
 
 from line_helper import (
