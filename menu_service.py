@@ -1,3 +1,4 @@
+已使用 98% 的儲存空間 … 儲存空間用盡後，你就無法將檔案儲存至雲端硬碟、備份到 Google 相簿，也無法使用 Gmail。現在購買 100 GB 儲存空間，可享 6 個月折扣，每月只要 $65 $32.50。
 import uuid
 
 from line_helper import (
@@ -40,7 +41,7 @@ class MenuService:
                             title='程式語言與網頁開發技術',
                             data=languages,
                             header_color='#d9ebfc',
-                            button_color='#5aa4c8'
+                            button_color='#3d8db3'
                         ),
                         create_bubble(
                             kind='skill',
@@ -337,32 +338,32 @@ class MenuService:
                             icon='💼',
                             title='軟體開發與技術',
                             data=software_development,
-                            header_color='#d9ebfc',
-                            button_color='#5aa4c8'
+                            header_color='#D6C3BF',
+                            button_color='#832a47'
                         ),
                         create_bubble(
                             kind='occupation',
                             icon='💼',
                             title='系統與網路管理',
                             data=system,
-                            header_color='#d9ebfc',
-                            button_color='#3d8db3'
+                            header_color='#D6C3BF',
+                            button_color='#832a47'
                         ),
                         create_bubble(
                             kind='occupation',
                             icon='💼',
                             title='資料處理與分析',
                             data=analysis,
-                            header_color='#d9ebfc',
-                            button_color='#3d8db3'
+                            header_color='#D6C3BF',
+                            button_color='#832a47'
                         ),
                         create_bubble(
                             kind='occupation',
                             icon='💼',
                             title='管理',
                             data=management,
-                            header_color='#d9ebfc',
-                            button_color='#3d8db3'
+                            header_color='#D6C3BF',
+                            button_color='#832a47'
                         )
                     ]
                 },
@@ -420,35 +421,35 @@ class MenuService:
                     "contents": [
                         create_bubble(
                             kind='course',
-                            icon='⌨️',
+                            icon='💻',
                             title='軟體開發與技術',
                             data=software_development,
-                            header_color='#d9ebfc',
-                            button_color='#5aa4c8'
+                            header_color='#D1E9E9',
+                            button_color='#4F9D9D'
                         ),
                         create_bubble(
                             kind='course',
-                            icon='🧬',
+                            icon='📖',
                             title='系統與網路管理',
                             data=system,
-                            header_color='#d9ebfc',
-                            button_color='#3d8db3'
+                            header_color='#D1E9E9',
+                            button_color='#4F9D9D'
                         ),
                         create_bubble(
                             kind='course',
-                            icon='🧬',
+                            icon='📈',
                             title='資料處理與分析',
                             data=analysis,
-                            header_color='#d9ebfc',
-                            button_color='#3d8db3'
+                            header_color='#D1E9E9',
+                            button_color='#4F9D9D'
                         ),
                         create_bubble(
                             kind='course',
-                            icon='🧬',
+                            icon='🧑‍💼',
                             title='管理',
                             data=management,
-                            header_color='#d9ebfc',
-                            button_color='#3d8db3'
+                            header_color='#D1E9E9',
+                            button_color='#4F9D9D'
                         )
                     ]
                 },
