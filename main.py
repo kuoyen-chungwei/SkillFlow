@@ -3,6 +3,7 @@ from pprint import pprint
 
 from flask import Flask, request
 from linebot.v3.webhook import WebhookHandler
+from dbutils.pooled_db import PooledDB
 import pymysql
 
 from config.line_bot_setting import CHANNEL_SECRET, CHANNEL_ACCESS_TOKEN, BASE_URL
@@ -12,12 +13,20 @@ from event_handler import EventHandler
 webhook_handler = WebhookHandler(CHANNEL_SECRET)
 
 app = Flask(__name__)
-connection = pymysql.connect(
+pool = PooledDB(
+    creator=pymysql,
+    maxconnections=10,
+    mincached=2,
+    maxcached=5,
+    maxusage=None,
+    blocking=True,
+    ping=1,
     host=MYSQL_HOST,
     user=MYSQL_USERNAME,
     password=MYSQL_PASSWORD,
     port=MYSQL_PORT,
-    db=DB_NAME
+    db=DB_NAME,
+    charset='utf8mb4'
 )
 
 
@@ -33,8 +42,12 @@ def callback():
     if json_data['events']:
         event = json_data['events'][0]
 
-        event_handler = EventHandler(event, CHANNEL_ACCESS_TOKEN, BASE_URL, connection)
-        event_handler.handle()
+        connection = pool.connection()
+        try:
+            event_handler = EventHandler(event, CHANNEL_ACCESS_TOKEN, BASE_URL, connection)
+            event_handler.handle()
+        finally:
+            connection.close()
     else:
         print('webhook 驗證成功')
 
@@ -43,4 +56,5 @@ def callback():
 
 if __name__ == '__main__':
     app.run()
+
 
